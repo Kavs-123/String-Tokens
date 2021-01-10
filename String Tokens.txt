@@ -1,0 +1,38 @@
+Given a string, , matching the regular expression [A-Za-z !,?._'@]+, split the string into tokens. 
+where 
+ [A-Za-z !,?._'@]+      -->In words we could read the regular expression as "one or more occurences of the characters between the brackets literally followed by
+ an @-sign, followed by one or more characters between the brackets, literally followed by a period, and completed by one or more letters from among A-Z and a-z.
+
+Sample Input
+He is a very very good boy, isn't he?
+
+Sample Output
+10
+He
+is
+a
+very
+very
+good
+boy
+isn
+t
+he
+         
+--------------------------------------------------------------------------------------------
+CODE-
+public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        scan.close();
+        
+        s=s.trim();--------->to removw white spaces from both the ends of string
+       if(s.length()==0)-------->if length is =0 
+         System.out.println(0);
+        else
+        {
+        String[] str=s.split("[ !?.'_@,]+");------>split the sentence into matcing regex
+        System.out.println(str.length);------------------------>printing the reslutant length
+        for(String w : str)
+         System.out.println(w); 
+        } 	
